@@ -1,0 +1,17 @@
+{
+  "name": "xhrpromise",
+  "version": "1.0.0",
+  "description": "XHRPromise",
+  "author": "Adrian Ber",
+  "license": "Apache",
+  "homepage": "https://github.com/beradrian/xhrpromise",
+  "main": "xhrpromise.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "docs",
+    "Gruntfile.js",
+    "index.html",
+    "package.json"
+  ]
+}
