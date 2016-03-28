@@ -40,7 +40,6 @@
 	"scripts": 
 	{
 		"babel": "node_modules/.bin/babel src/main/js/xhrpromise.js -o index.js --presets es2015 --plugins babel-plugin-add-module-exports",
-		"prepublish": "npm run babel",
 		"postinstall": "npm run babel",
 		"test": "node_modules/.bin/karma start src/test/karma.conf.js"
 	}
