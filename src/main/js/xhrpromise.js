@@ -3,9 +3,9 @@ export default class XhrPromise {
 		return new XhrPromise(options);
 	}
 
-	constructor(options) {
+	constructor(options, promise) {
 		this.options = options;
-		this.promise = new Promise(this.executor.bind(this));
+		this.promise = promise || new Promise(this.executor.bind(this));
 	}
 
 	executor(resolve, reject) {
@@ -56,7 +56,9 @@ export default class XhrPromise {
 	};
 
 	then(a, b) {
-		return this.promise.then(a, b);
+		var p = new XhrPromise(this.options, this.promise.then(a, b));
+		p.xhr = this.xhr;
+		return p;
 	}
 
 	static get REJECT_RESPONSE() {
