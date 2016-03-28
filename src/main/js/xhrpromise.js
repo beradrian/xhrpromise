@@ -32,7 +32,7 @@ export default class XhrPromise {
 		};
 		xhr.onreadystatechange = function() {
 			if (this.status == 0) {
-				reject(REJECT_RESPONSE);
+				reject(XhrPromise.REJECT_RESPONSE);
 			};
 		};
 		xhr.onerror = function () {
@@ -42,7 +42,7 @@ export default class XhrPromise {
 			});
 		};
 		xhr.onabort = function () {
-			reject(REJECT_RESPONSE);
+			reject(XhrPromise.REJECT_RESPONSE);
 		};
 		xhr.send();
 	}
