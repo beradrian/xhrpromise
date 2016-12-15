@@ -11,11 +11,6 @@ export default class XhrPromise {
 	executor(resolve, reject) {
 		var xhr = new XMLHttpRequest();
 		this.xhr = xhr;
-		this.postData = null;
-		
-		if(this.options.data !== null || this.options.data !== undefined) {
-			this.postData = this.options.data;
-		}
 		
 		xhr.open(this.options.method, this.options.url);
 		for (var h in this.options.headers) {
@@ -50,7 +45,7 @@ export default class XhrPromise {
 		xhr.onabort = function () {
 			reject(XhrPromise.REJECT_RESPONSE);
 		};
-		xhr.send(this.postData);
+		xhr.send(this.options.data);
 	}
 
 	cancel() {
