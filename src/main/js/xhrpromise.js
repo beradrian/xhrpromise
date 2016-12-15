@@ -11,6 +11,7 @@ export default class XhrPromise {
 	executor(resolve, reject) {
 		var xhr = new XMLHttpRequest();
 		this.xhr = xhr;
+		
 		xhr.open(this.options.method, this.options.url);
 		for (var h in this.options.headers) {
 			if (this.options.headers.hasOwnProperty(h)) {
@@ -44,7 +45,7 @@ export default class XhrPromise {
 		xhr.onabort = function () {
 			reject(XhrPromise.REJECT_RESPONSE);
 		};
-		xhr.send();
+		xhr.send(this.options.data);
 	}
 
 	cancel() {
